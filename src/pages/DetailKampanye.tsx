@@ -147,11 +147,11 @@ const DetailKampanye: React.FC = () => {
                 <div className="absolute top-4 right-4 flex space-x-2">
                   <button
                     onClick={handleShare}
-                    className="bg-white bg-opacity-90 hover:bg-opacity-100 p-2 rounded-full transition-colors"
+                    className="bg-white bg-opacity-90 hover:bg-opacity-100 p-2 rounded-full transition-all duration-300 hover:scale-110 hover:shadow-lg"
                   >
                     <Share2 className="w-5 h-5 text-gray-700" />
                   </button>
-                  <button className="bg-white bg-opacity-90 hover:bg-opacity-100 p-2 rounded-full transition-colors">
+                  <button className="bg-white bg-opacity-90 hover:bg-opacity-100 p-2 rounded-full transition-all duration-300 hover:scale-110 hover:shadow-lg group">
                     <Heart className="w-5 h-5 text-gray-700" />
                   </button>
                 </div>
@@ -199,7 +199,7 @@ const DetailKampanye: React.FC = () => {
                     <button
                       key={tab.id}
                       onClick={() => setActiveTab(tab.id)}
-                      className={`py-4 px-1 border-b-2 font-medium text-sm transition-colors ${
+                      className="w-full bg-gradient-to-r from-blue-600 to-blue-700 text-white py-3 rounded-lg font-semibold hover:from-blue-700 hover:to-blue-800 disabled:bg-gray-300 disabled:cursor-not-allowed transition-all duration-300 transform hover:scale-105 hover:shadow-lg disabled:hover:scale-100 disabled:hover:shadow-none"
                         activeTab === tab.id
                           ? 'border-blue-500 text-blue-600'
                           : 'border-transparent text-gray-500 hover:text-gray-700 hover:border-gray-300'

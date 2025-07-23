@@ -314,21 +314,22 @@ const JelajahKampanye: React.FC = () => {
             {/* Campaign Grid */}
             <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
               {sortedCampaigns.map(campaign => (
-                <div key={campaign.id} className="bg-white rounded-lg shadow-sm hover:shadow-md transition-shadow border border-gray-200 overflow-hidden">
+                <div key={campaign.id} className="bg-white rounded-lg shadow-sm hover:shadow-xl transition-all duration-500 border border-gray-200 overflow-hidden group hover:-translate-y-2 hover:scale-105">
                   <div className="relative">
                     <img
                       src={campaign.image}
                       alt={campaign.title}
-                      className="w-full h-48 object-cover"
+                      className="w-full h-48 object-cover group-hover:scale-110 transition-transform duration-500"
                     />
                     {campaign.urgent && (
-                      <div className="absolute top-3 left-3 bg-red-500 text-white px-3 py-1 rounded-full text-sm font-medium">
+                      <div className="absolute top-3 left-3 bg-red-500 text-white px-3 py-1 rounded-full text-sm font-medium animate-pulse">
                         Mendesak
                       </div>
                     )}
-                    <div className="absolute top-3 right-3 bg-black bg-opacity-50 text-white px-2 py-1 rounded text-sm">
+                    <div className="absolute top-3 right-3 bg-black bg-opacity-50 text-white px-2 py-1 rounded text-sm group-hover:bg-opacity-70 transition-all duration-300">
                       {campaign.daysLeft} hari lagi
                     </div>
+                    <div className="absolute inset-0 bg-gradient-to-t from-black/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
                   </div>
                   
                   <div className="p-6">
@@ -339,7 +340,7 @@ const JelajahKampanye: React.FC = () => {
                       <span>{categories.find(c => c.id === campaign.category)?.name}</span>
                     </div>
                     
-                    <h3 className="font-bold text-lg text-gray-900 mb-2 line-clamp-2">
+                    <h3 className="font-bold text-lg text-gray-900 mb-2 line-clamp-2 group-hover:text-blue-600 transition-colors duration-300">
                       {campaign.title}
                     </h3>
                     
@@ -354,7 +355,7 @@ const JelajahKampanye: React.FC = () => {
                       </div>
                       <div className="w-full bg-gray-200 rounded-full h-2">
                         <div 
-                          className="bg-gradient-to-r from-blue-600 to-green-600 h-2 rounded-full transition-all duration-500"
+                          className="bg-gradient-to-r from-blue-600 to-green-600 h-2 rounded-full transition-all duration-1000 group-hover:shadow-lg"
                           style={{ width: `${campaign.progress}%` }}
                         ></div>
                       </div>
@@ -373,7 +374,7 @@ const JelajahKampanye: React.FC = () => {
                     
                     <Link
                       to={`/kampanye/${campaign.id}`}
-                      className="block w-full bg-blue-600 text-white text-center py-3 rounded-lg font-medium hover:bg-blue-700 transition-colors"
+                      className="block w-full bg-gradient-to-r from-blue-600 to-blue-700 text-white text-center py-3 rounded-lg font-medium hover:from-blue-700 hover:to-blue-800 transition-all duration-300 transform hover:scale-105 hover:shadow-lg"
                     >
                       Lihat Detail & Donasi
                     </Link>
@@ -384,7 +385,7 @@ const JelajahKampanye: React.FC = () => {
 
             {/* No Results */}
             {sortedCampaigns.length === 0 && (
-              <div className="bg-white rounded-lg shadow-sm border border-gray-200 p-12 text-center">
+              <div className="bg-white rounded-lg shadow-sm border border-gray-200 p-12 text-center animate-fade-in-up">
                 <Target className="w-16 h-16 text-gray-300 mx-auto mb-4" />
                 <h3 className="text-lg font-semibold text-gray-900 mb-2">Tidak ada kampanye ditemukan</h3>
                 <p className="text-gray-600 mb-6">
@@ -397,7 +398,7 @@ const JelajahKampanye: React.FC = () => {
                     setSelectedLocation('all');
                     setSelectedStatus('all');
                   }}
-                  className="bg-blue-600 text-white px-6 py-3 rounded-lg font-medium hover:bg-blue-700 transition-colors"
+                  className="bg-gradient-to-r from-blue-600 to-blue-700 text-white px-6 py-3 rounded-lg font-medium hover:from-blue-700 hover:to-blue-800 transition-all duration-300 transform hover:scale-105 hover:shadow-lg"
                 >
                   Reset Filter
                 </button>
